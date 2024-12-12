@@ -14,3 +14,12 @@ function getComputerChoice(){
 }
 
 getComputerChoice();
+
+
+
+function getHumanChoice() {
+let choice = prompt("Rock, paper or scissors?", "Rock");
+console.log("You picked "+ choice);
+}
+getHumanChoice();
+
