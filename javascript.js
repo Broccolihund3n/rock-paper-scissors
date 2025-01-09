@@ -40,18 +40,18 @@ const computerChoice = getComputerChoice();
 
 //make sure all versions are here
 function playRound(humanChoice, computerChoice){
-   if (humanChoice === "rock" && computerChoice === "paper"){
+   if (humanChoice.toLowerCase() === "rock" && computerChoice === "paper" || humanChoice.toLowerCase() === "paper" && computerChoice === "scissors" || humanChoice.toLowerCase() === "scissors" && computerChoice === "rock"){
       console.log(`You loose! ${computerChoice} beats ${humanChoice}`);
 
-   } else if (humanChoice === "rock" && computerChoice ==="scissors"){
-      console.log(`You win! ${humanChoice} beats ${computerChoice}`);
- 
-   } else if(humanChoice === computerChoice){
+   } else if(humanChoice.toLowerCase() === computerChoice){
       console.log("It's a tie. Try again!");
    }
+
    else {
-      console.log("Add more options")
-   }
+      console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+   } 
+   
+   
 }
 
 
