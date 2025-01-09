@@ -7,15 +7,15 @@ let randomNumber = Math.random()*10;
 function getComputerChoice(){
   if (randomNumber <4){
    console.log("The computer picked rock");
-   return "Rock";
+   return "rock";
 
  } else if (randomNumber >3 && randomNumber <7){
     console.log("The computer picked paper");
-    return "Paper";
+    return "paper";
 
  } else {
     console.log("The computer picked scissors");
-    return "Scissors";
+    return "scissors";
     }
 }
 
@@ -25,6 +25,7 @@ function getComputerChoice(){
 function getHumanChoice() {
 let choice = prompt("Rock, paper or scissors?", "rock");
 console.log("You picked "+ choice);
+return choice;
 }
 
 
@@ -43,9 +44,9 @@ function playRound(humanChoice, computerChoice){
       console.log("You loose! Paper beats Rock");
 
    } else if (humanChoice === "rock" && computerChoice ==="scissors"){
-      console.log("You win! Scissors beats paper.");
+      console.log("You win! Rock beats scissors.");
 
-   } else if(humanChoice === "rock" && computerChoice ==="rock"){
+   } else if(humanChoice=== "rock" && computerChoice ==="rock"){
       console.log("It's a tie. Try again!");
    }
    else {
