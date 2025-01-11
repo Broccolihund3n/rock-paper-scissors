@@ -1,10 +1,8 @@
 
-
-//step 2, to get the computer choice
-let randomNumber = Math.random()*10;
-
-
 function getComputerChoice(){
+   //step 2, to get the computer choice
+   let randomNumber = Math.random()*10;
+
   if (randomNumber <4){
    console.log("The computer picked rock");
    return "rock";
@@ -29,33 +27,46 @@ return choice;
 }
 
 
-//step 4, declare score variables
-let computerScore = 0;
-let humanScore = 0;
-
 //step 5, logic to play a round
-
 const humanChoice = getHumanChoice();
 const computerChoice = getComputerChoice();
 
-function playRound(humanChoice, computerChoice){
-   if (humanChoice.toLowerCase() === "rock" && computerChoice === "paper" || humanChoice.toLowerCase() === "paper" && computerChoice === "scissors" || humanChoice.toLowerCase() === "scissors" && computerChoice === "rock"){
-      console.log(`You loose! ${computerChoice} beats ${humanChoice}`);
-       computerScore ++;
+//step 6, play more rounds
+function playGame() {
+   //step 4, declare score variables
+   let computerScore = 0;
+   let humanScore = 0;
 
-   } else if(humanChoice.toLowerCase() === computerChoice){
-      console.log("It's a tie. Try again!");
+   playRound(humanChoice, computerChoice);
+
+   //to play one round and see who wins
+   function playRound(humanChoice, computerChoice){
+      
+      if (humanChoice.toLowerCase() === "rock" && computerChoice === "paper" || humanChoice.toLowerCase() === "paper" && computerChoice === "scissors" || humanChoice.toLowerCase() === "scissors" && computerChoice === "rock"){
+         console.log(`You loose! ${computerChoice} beats ${humanChoice}`);
+          computerScore ++;
+   
+      } else if(humanChoice.toLowerCase() === computerChoice){
+         console.log("It's a tie. Try again!");
+      }
+   
+      else {
+         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+         humanScore ++;
+      } 
+      
+      console.log("Human score:" + humanScore);
+      console.log("Computer score:" + computerScore);
    }
 
-   else {
-      console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-      humanScore ++;
-   } 
+   if (computerScore + humanScore === 5){
+      console.log("Game over");
+   } else {
+      const humanChoice = getHumanChoice();
+      const computerChoice = getComputerChoice();
+      playRound(humanChoice, computerChoice);
+   }
+   
 }
 
-
-playRound(humanChoice, computerChoice);
-
-console.log("Human score:" + humanScore);
-console.log("Computer score:" + computerScore);
-
+playGame();
