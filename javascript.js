@@ -17,15 +17,12 @@ function getComputerChoice(){
     }
 }
 
-
-
 //step 3, to get the human choice
 function getHumanChoice() {
 let choice = prompt("Rock, paper or scissors?", "rock");
 console.log("You picked "+ choice);
 return choice;
 }
-
 
 //step 5, logic to play a round
 const humanChoice = getHumanChoice();
@@ -36,6 +33,8 @@ function playGame() {
    //step 4, declare score variables
    let computerScore = 0;
    let humanScore = 0;
+
+   let roundCount = 1;
 
    playRound(humanChoice, computerChoice);
 
@@ -57,14 +56,21 @@ function playGame() {
       
       console.log("Human score:" + humanScore);
       console.log("Computer score:" + computerScore);
-   }
-
-   if (computerScore + humanScore === 5){
-      console.log("Game over");
-   } else {
-      const humanChoice = getHumanChoice();
-      const computerChoice = getComputerChoice();
-      playRound(humanChoice, computerChoice);
+      console.log("End of round " + roundCount);
+   
+      if (roundCount === 5){
+         console.log("Game over");
+            if (computerScore > humanScore){
+               console.log("The computer wins!")
+            } else {
+               console.log("Congratulations! You win!")
+            }
+      } else {
+         roundCount ++;
+         const humanChoice = getHumanChoice();
+         const computerChoice = getComputerChoice();
+         playRound(humanChoice, computerChoice);
+      }
    }
    
 }
